@@ -1,0 +1,196 @@
+{
+  "summary": "A professional, green-themed billing and inventory management dashboard for Mangalam Hardware. Features a robust credit/debt tracking system, PDF invoice generation, and a streamlined billing interface.",
+  "designSeed": "mangalam-hardware",
+  "projectType": "full-stack",
+  "needsAuth": true,
+  "authReasoning": "This is a financial application managing sales, customer debts, and business revenue. Access must be restricted to authorized personnel to protect sensitive financial data and prevent unauthorized record modification.",
+  "features": [
+    "Dark green professional header with branding",
+    "Dynamic billing table with Green headers",
+    "Automated GST and Subtotal calculations",
+    "Customer Credit/Debt (Udhaar) tracking system",
+    "One-click PDF Invoice generation (Print view)",
+    "Real-time customer search and management",
+    "Responsive dashboard layout"
+  ],
+  "layoutStyle": "Sidebar + Content with a fixed Dark Green top header bar as specifically requested.",
+  "colorMood": "Professional Hardware Store Green",
+  "primaryColor": "#22B21F",
+  "colorPalette": [
+    "#1B5E20",
+    "#2E7D32",
+    "#4CAF50",
+    "#81C784",
+    "#E8F5E9"
+  ],
+  "animationStyle": "Professional, crisp transitions. Rows fade in, modals slide up.",
+  "uiPrompt": "A clean, data-dense interface using a 'Mangalam Green' theme. The top navigation bar is a solid dark green (#1B5E20) with white text. Data tables feature emerald green headers (#2E7D32) with white text and alternating row colors (white/gray-50). Buttons are vibrant green (#22B21F) with shadow-sm hover:shadow-md. Cards have rounded-lg corners and subtle shadow-md. Inputs are crisp with green focus rings.",
+  "models": [
+    {
+      "name": "User",
+      "file": "src/models/User.ts",
+      "fields": [
+        "email: String",
+        "password: String",
+        "role: String"
+      ]
+    },
+    {
+      "name": "Customer",
+      "file": "src/models/Customer.ts",
+      "fields": [
+        "name: String",
+        "mobile: String",
+        "totalCredit: Number",
+        "totalPaid: Number"
+      ]
+    },
+    {
+      "name": "Bill",
+      "file": "src/models/Bill.ts",
+      "fields": [
+        "billNo: String",
+        "customerId: ObjectId",
+        "customerName: String",
+        "customerMobile: String",
+        "items: Array",
+        "subtotal: Number",
+        "gst: Number",
+        "total: Number",
+        "paidAmount: Number",
+        "balance: Number",
+        "status: String"
+      ]
+    }
+  ],
+  "apiRoutes": [
+    {
+      "method": "GET",
+      "path": "/api/bills",
+      "file": "src/app/api/bills/route.ts",
+      "description": "Fetches all bills with pagination and sorting"
+    },
+    {
+      "method": "POST",
+      "path": "/api/bills",
+      "file": "src/app/api/bills/route.ts",
+      "description": "Creates a new bill and updates customer credit balance automatically"
+    },
+    {
+      "method": "GET",
+      "path": "/api/customers",
+      "file": "src/app/api/customers/route.ts",
+      "description": "Searches customers and retrieves credit info"
+    },
+    {
+      "method": "PUT",
+      "path": "/api/customers",
+      "file": "src/app/api/customers/route.ts",
+      "description": "Updates customer debt/payment status"
+    }
+  ],
+  "pages": [
+    {
+      "path": "/",
+      "file": "src/app/page.tsx",
+      "description": "Landing/Login page for the hardware shop staff",
+      "crud": [],
+      "usesApi": [],
+      "isProtected": false,
+      "requiredRole": null
+    },
+    {
+      "path": "/dashboard",
+      "file": "src/app/dashboard/page.tsx",
+      "description": "Main Billing Dashboard with the requested Green Table and Bill List",
+      "crud": [
+        "read"
+      ],
+      "usesApi": [
+        "/api/bills",
+        "/api/stats"
+      ],
+      "isProtected": true,
+      "requiredRole": "user"
+    },
+    {
+      "path": "/bills/create",
+      "file": "src/app/bills/create/page.tsx",
+      "description": "Form to create a new bill with items and calculations",
+      "crud": [
+        "create"
+      ],
+      "usesApi": [
+        "/api/bills",
+        "/api/customers"
+      ],
+      "isProtected": true,
+      "requiredRole": "user"
+    },
+    {
+      "path": "/bills/[id]/print",
+      "file": "src/app/bills/[id]/print/page.tsx",
+      "description": "Print-optimized Invoice View (PDF generation target)",
+      "crud": [
+        "read"
+      ],
+      "usesApi": [
+        "/api/bills"
+      ],
+      "isProtected": true,
+      "requiredRole": "user"
+    },
+    {
+      "path": "/customers",
+      "file": "src/app/customers/page.tsx",
+      "description": "Customer credit management interface",
+      "crud": [
+        "read",
+        "update"
+      ],
+      "usesApi": [
+        "/api/customers"
+      ],
+      "isProtected": true,
+      "requiredRole": "user"
+    }
+  ],
+  "authSystem": {
+    "provider": "src/contexts/AuthContext.tsx",
+    "hook": "src/hooks/useAuth.ts",
+    "middleware": "src/middleware.ts",
+    "protectedWrapper": "src/components/ProtectedRoute.tsx"
+  },
+  "components": [
+    {
+      "name": "Header",
+      "file": "src/components/Header.tsx",
+      "description": "The specific dark-green header requested: 'Mangalam Hardware – Billing Dashboard'",
+      "usesApi": []
+    },
+    {
+      "name": "BillingTable",
+      "file": "src/components/BillingTable.tsx",
+      "description": "The main table with Green headers showing Bill No, Customer, Mobile, Subtotal, GST, Total, Invoice",
+      "usesApi": []
+    },
+    {
+      "name": "CreditStatusBadge",
+      "file": "src/components/CreditStatusBadge.tsx",
+      "description": "Visual indicator for Paid vs Credit bills",
+      "usesApi": []
+    }
+  ],
+  "contentAreas": [
+    {
+      "order": 1,
+      "name": "Hero Login",
+      "description": "Secure login area with hardware shop branding"
+    },
+    {
+      "order": 2,
+      "name": "Features Grid",
+      "description": "Quick overview of system capabilities (Billing, Inventory, Credit)"
+    }
+  ]
+}

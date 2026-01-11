@@ -1,0 +1,540 @@
+{
+  "projectId": "proj_1768044554176_akgnmya1s",
+  "rootPath": "/mnt/data/appopen-projects/69623801fd65af632e161a04",
+  "files": {
+    ".gitignore": {
+      "path": ".gitignore",
+      "language": "unknown",
+      "size": 554,
+      "lines": 58,
+      "hash": "600a4b0cc868e80a55161030718935d2",
+      "lastIndexed": "2026-01-10T11:29:14.177Z",
+      "exports": [],
+      "imports": [],
+      "tags": []
+    },
+    "eslint.config.mjs": {
+      "path": "eslint.config.mjs",
+      "language": "unknown",
+      "size": 524,
+      "lines": 26,
+      "hash": "f1e80e839db34357a0e228efe227e759",
+      "lastIndexed": "2026-01-10T11:29:14.177Z",
+      "exports": [],
+      "imports": [],
+      "tags": [
+        "config"
+      ]
+    },
+    "next.config.ts": {
+      "path": "next.config.ts",
+      "language": "typescript",
+      "size": 1135,
+      "lines": 52,
+      "hash": "1c654956f7536ae90ef22b589e266d29",
+      "lastIndexed": "2026-01-10T11:29:14.177Z",
+      "exports": [],
+      "imports": [
+        "next",
+        "path",
+        "url"
+      ],
+      "tags": [
+        "config"
+      ]
+    },
+    "package.json": {
+      "path": "package.json",
+      "language": "json",
+      "size": 1475,
+      "lines": 58,
+      "hash": "dd348615d8d586805702450597ca142a",
+      "lastIndexed": "2026-01-10T11:29:14.178Z",
+      "exports": [],
+      "imports": [],
+      "tags": [
+        "auth"
+      ]
+    },
+    "postcss.config.mjs": {
+      "path": "postcss.config.mjs",
+      "language": "unknown",
+      "size": 81,
+      "lines": 6,
+      "hash": "675899342e765a4d16acd75a53389101",
+      "lastIndexed": "2026-01-10T11:29:14.178Z",
+      "exports": [],
+      "imports": [],
+      "tags": [
+        "config"
+      ]
+    },
+    "src/app/error.tsx": {
+      "path": "src/app/error.tsx",
+      "language": "typescript-react",
+      "size": 319,
+      "lines": 15,
+      "hash": "f58882596e8aef7d7415fe3b1065a3b4",
+      "lastIndexed": "2026-01-10T11:29:14.179Z",
+      "exports": [
+        "default:GlobalError"
+      ],
+      "imports": [
+        "@/components/ErrorReporter"
+      ],
+      "tags": [
+        "page",
+        "client-component",
+        "default-export"
+      ]
+    },
+    "src/app/favicon.ico": {
+      "path": "src/app/favicon.ico",
+      "language": "unknown",
+      "size": 39535,
+      "lines": 31,
+      "hash": "b7e5d143f696329db9b04f047c8ba284",
+      "lastIndexed": "2026-01-10T11:29:14.179Z",
+      "exports": [],
+      "imports": [],
+      "tags": [
+        "page"
+      ]
+    },
+    "src/app/globals.css": {
+      "path": "src/app/globals.css",
+      "language": "css",
+      "size": 1309,
+      "lines": 57,
+      "hash": "fc8f783263e0a192a028c1032b2b3645",
+      "lastIndexed": "2026-01-10T11:37:06.268Z",
+      "exports": [],
+      "imports": [],
+      "tags": [
+        "page",
+        "styles"
+      ]
+    },
+    "src/app/layout.tsx": {
+      "path": "src/app/layout.tsx",
+      "language": "typescript-react",
+      "size": 1707,
+      "lines": 48,
+      "hash": "7551fb4f428c8e7c63ab4a4e3bd44f9b",
+      "lastIndexed": "2026-01-10T11:29:14.180Z",
+      "exports": [
+        "metadata",
+        "default:RootLayout"
+      ],
+      "imports": [
+        "next",
+        "next/font/google",
+        "@/visual-edits/VisualEditsMessenger",
+        "@/components/ErrorReporter",
+        "@/components/NavigationTracker",
+        "@/components/StorageAccessHelper",
+        "next/script"
+      ],
+      "tags": [
+        "page",
+        "default-export"
+      ]
+    },
+    "src/app/page.tsx": {
+      "path": "src/app/page.tsx",
+      "language": "typescript-react",
+      "size": 2721,
+      "lines": 59,
+      "hash": "1ba2dacc319759417bae0769f0d43bef",
+      "lastIndexed": "2026-01-10T11:38:01.706Z",
+      "exports": [
+        "default:Home"
+      ],
+      "imports": [
+        "@/components/Header",
+        "@/components/BillingTable",
+        "next/link"
+      ],
+      "tags": [
+        "page",
+        "default-export"
+      ]
+    },
+    "src/components/ErrorReporter.tsx": {
+      "path": "src/components/ErrorReporter.tsx",
+      "language": "typescript-react",
+      "size": 9517,
+      "lines": 285,
+      "hash": "8b91bdfe121fae4e8ca3a170c72f7240",
+      "lastIndexed": "2026-01-10T11:29:14.181Z",
+      "exports": [
+        "default:ErrorReporter"
+      ],
+      "imports": [
+        "react",
+        "lucide-react"
+      ],
+      "tags": [
+        "component",
+        "client-component",
+        "stateful",
+        "default-export",
+        "auth"
+      ]
+    },
+    "src/components/NavigationTracker.tsx": {
+      "path": "src/components/NavigationTracker.tsx",
+      "language": "typescript-react",
+      "size": 2574,
+      "lines": 80,
+      "hash": "fae589acdea614a53aedbb6c79232c86",
+      "lastIndexed": "2026-01-10T11:29:14.181Z",
+      "exports": [
+        "default:NavigationTracker"
+      ],
+      "imports": [
+        "react",
+        "next/navigation"
+      ],
+      "tags": [
+        "component",
+        "client-component",
+        "stateful",
+        "default-export"
+      ]
+    },
+    "src/components/StorageAccessHelper.tsx": {
+      "path": "src/components/StorageAccessHelper.tsx",
+      "language": "typescript-react",
+      "size": 6866,
+      "lines": 179,
+      "hash": "5fae20f3d90d615521dd81a424c5905f",
+      "lastIndexed": "2026-01-10T11:29:14.182Z",
+      "exports": [
+        "default:StorageAccessHelper"
+      ],
+      "imports": [
+        "react"
+      ],
+      "tags": [
+        "component",
+        "client-component",
+        "stateful",
+        "default-export",
+        "auth"
+      ]
+    },
+    "src/lib/utils.ts": {
+      "path": "src/lib/utils.ts",
+      "language": "typescript",
+      "size": 166,
+      "lines": 7,
+      "hash": "ea1c194ee828369e6fcdde84b4d8b8ba",
+      "lastIndexed": "2026-01-10T11:29:14.182Z",
+      "exports": [
+        "cn"
+      ],
+      "imports": [
+        "clsx",
+        "tailwind-merge"
+      ],
+      "tags": [
+        "util"
+      ]
+    },
+    "src/visual-edits/VisualEditsMessenger.tsx": {
+      "path": "src/visual-edits/VisualEditsMessenger.tsx",
+      "language": "typescript-react",
+      "size": 37499,
+      "lines": 992,
+      "hash": "af370fcb8780f66e848409232dc415b2",
+      "lastIndexed": "2026-01-10T11:29:14.183Z",
+      "exports": [
+        "default:VisualEditsMessenger"
+      ],
+      "imports": [
+        "react"
+      ],
+      "tags": [
+        "client-component",
+        "stateful",
+        "default-export"
+      ]
+    },
+    "src/visual-edits/component-tagger-loader.js": {
+      "path": "src/visual-edits/component-tagger-loader.js",
+      "language": "javascript",
+      "size": 3055,
+      "lines": 99,
+      "hash": "c3428f672b4b895e8f39311f5097de38",
+      "lastIndexed": "2026-01-10T11:29:14.183Z",
+      "exports": [
+        "default:componentTaggerLoader"
+      ],
+      "imports": [
+        "@babel/parser",
+        "estree-walker"
+      ],
+      "tags": [
+        "default-export"
+      ]
+    },
+    "tsconfig.json": {
+      "path": "tsconfig.json",
+      "language": "json",
+      "size": 602,
+      "lines": 28,
+      "hash": "0cf97a81150d3b8904f285780896980d",
+      "lastIndexed": "2026-01-10T11:29:14.184Z",
+      "exports": [],
+      "imports": [],
+      "tags": [
+        "config"
+      ]
+    },
+    "SYSTEM_DESIGN.json": {
+      "path": "SYSTEM_DESIGN.json",
+      "language": "json",
+      "size": 5999,
+      "lines": 196,
+      "hash": "71beda1180a284d76104909964089405",
+      "lastIndexed": "2026-01-10T11:37:06.263Z",
+      "exports": [],
+      "imports": [],
+      "tags": [
+        "auth"
+      ]
+    },
+    "SYSTEM_DESIGN.md": {
+      "path": "SYSTEM_DESIGN.md",
+      "language": "markdown",
+      "size": 5308,
+      "lines": 100,
+      "hash": "b2fd04805a6863874b441dcbc51affcf",
+      "lastIndexed": "2026-01-10T11:37:06.263Z",
+      "exports": [],
+      "imports": [],
+      "tags": [
+        "auth"
+      ]
+    },
+    "src/lib/mongodb.ts": {
+      "path": "src/lib/mongodb.ts",
+      "language": "typescript",
+      "size": 899,
+      "lines": 44,
+      "hash": "d5b493f12d450e80cb2083bf3766b2d4",
+      "lastIndexed": "2026-01-10T11:43:30.965Z",
+      "exports": [
+        "connectToDatabase"
+      ],
+      "imports": [
+        "mongoose"
+      ],
+      "tags": [
+        "util",
+        "auth"
+      ]
+    },
+    "src/models/Bill.ts": {
+      "path": "src/models/Bill.ts",
+      "language": "typescript",
+      "size": 1260,
+      "lines": 47,
+      "hash": "541f169e7e86ce68fbac2e5d2718027b",
+      "lastIndexed": "2026-01-10T11:37:14.382Z",
+      "exports": [
+        "IBillItem",
+        "IBill"
+      ],
+      "imports": [
+        "mongoose"
+      ],
+      "tags": []
+    },
+    "src/models/Customer.ts": {
+      "path": "src/models/Customer.ts",
+      "language": "typescript",
+      "size": 649,
+      "lines": 20,
+      "hash": "bb7078c069d246499e9463015fe18164",
+      "lastIndexed": "2026-01-10T11:37:14.382Z",
+      "exports": [
+        "ICustomer"
+      ],
+      "imports": [
+        "mongoose"
+      ],
+      "tags": []
+    },
+    "src/app/api/bills/route.ts": {
+      "path": "src/app/api/bills/route.ts",
+      "language": "typescript",
+      "size": 1753,
+      "lines": 55,
+      "hash": "bfee62e2a2f1054008e2fbaa1bc3ee77",
+      "lastIndexed": "2026-01-10T11:37:25.838Z",
+      "exports": [
+        "GET",
+        "POST"
+      ],
+      "imports": [
+        "next/server",
+        "@/lib/mongodb",
+        "@/models/Bill",
+        "@/models/Customer"
+      ],
+      "tags": [
+        "page",
+        "api"
+      ]
+    },
+    "src/app/api/customers/route.ts": {
+      "path": "src/app/api/customers/route.ts",
+      "language": "typescript",
+      "size": 2032,
+      "lines": 66,
+      "hash": "3adac59ad80bcea80397cf124cb3447d",
+      "lastIndexed": "2026-01-10T11:45:27.884Z",
+      "exports": [
+        "GET",
+        "POST",
+        "PUT"
+      ],
+      "imports": [
+        "next/server",
+        "@/lib/mongodb",
+        "@/models/Customer"
+      ],
+      "tags": [
+        "page",
+        "api"
+      ]
+    },
+    "src/components/Header.tsx": {
+      "path": "src/components/Header.tsx",
+      "language": "typescript-react",
+      "size": 1539,
+      "lines": 29,
+      "hash": "3190a26cd63ca6481e036674939f1da8",
+      "lastIndexed": "2026-01-10T11:37:34.338Z",
+      "exports": [
+        "default:Header"
+      ],
+      "imports": [
+        "react"
+      ],
+      "tags": [
+        "component",
+        "default-export"
+      ]
+    },
+    "src/components/BillingTable.tsx": {
+      "path": "src/components/BillingTable.tsx",
+      "language": "typescript-react",
+      "size": 4888,
+      "lines": 110,
+      "hash": "94357aca5cf808bad09463172252d26e",
+      "lastIndexed": "2026-01-10T11:37:51.641Z",
+      "exports": [
+        "default:BillingTable"
+      ],
+      "imports": [
+        "react",
+        "./CreditStatusBadge",
+        "next/link"
+      ],
+      "tags": [
+        "component",
+        "client-component",
+        "stateful",
+        "default-export"
+      ]
+    },
+    "src/components/CreditStatusBadge.tsx": {
+      "path": "src/components/CreditStatusBadge.tsx",
+      "language": "typescript-react",
+      "size": 531,
+      "lines": 18,
+      "hash": "e96e6773128c7f1f8dc66a78ce5a1ac3",
+      "lastIndexed": "2026-01-10T11:37:51.641Z",
+      "exports": [
+        "default:CreditStatusBadge"
+      ],
+      "imports": [
+        "react"
+      ],
+      "tags": [
+        "component",
+        "default-export"
+      ]
+    },
+    "src/app/bills/create/page.tsx": {
+      "path": "src/app/bills/create/page.tsx",
+      "language": "typescript-react",
+      "size": 9508,
+      "lines": 252,
+      "hash": "fc1b33bf04960810825cb92583ff0ebc",
+      "lastIndexed": "2026-01-10T11:43:30.961Z",
+      "exports": [
+        "default:CreateBillPage"
+      ],
+      "imports": [
+        "react",
+        "next/navigation",
+        "next/link"
+      ],
+      "tags": [
+        "page",
+        "client-component",
+        "stateful",
+        "default-export"
+      ]
+    },
+    "src/app/bills/[id]/print/page.tsx": {
+      "path": "src/app/bills/[id]/print/page.tsx",
+      "language": "typescript-react",
+      "size": 5794,
+      "lines": 130,
+      "hash": "fb75b1bf00bee70bff765b19e5737b02",
+      "lastIndexed": "2026-01-10T11:45:27.885Z",
+      "exports": [
+        "default:PrintBillPage"
+      ],
+      "imports": [
+        "react",
+        "next/navigation",
+        "next/link"
+      ],
+      "tags": [
+        "page",
+        "client-component",
+        "stateful",
+        "default-export"
+      ]
+    },
+    "src/app/customers/page.tsx": {
+      "path": "src/app/customers/page.tsx",
+      "language": "typescript-react",
+      "size": 4095,
+      "lines": 110,
+      "hash": "518eb69c2d610dc58d8c48b89f48ed2d",
+      "lastIndexed": "2026-01-10T11:45:27.886Z",
+      "exports": [
+        "default:CustomersPage"
+      ],
+      "imports": [
+        "react",
+        "next/link"
+      ],
+      "tags": [
+        "page",
+        "client-component",
+        "stateful",
+        "default-export"
+      ]
+    }
+  },
+  "lastFullScan": "2026-01-10T11:29:14.184Z",
+  "version": 1
+}
