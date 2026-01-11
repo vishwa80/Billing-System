@@ -1,0 +1,56 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  
+  /* Design System Colors - Generated from System Design */
+  /* Primary: #22B21F */
+  /* Color Mood: Professional Hardware Store Green */
+  
+  --color-background: 0 0% 100%;
+  --color-foreground: 222 47% 11%;
+  
+  --color-primary: 119 70% 41%;
+  --color-primary-foreground: 0 0% 100%;
+  
+  --color-secondary: 123 46% 34%;
+  --color-secondary-foreground: 222 47% 11%;
+  
+  --color-accent: 123 38% 64%;
+  --color-accent-foreground: 0 0% 98%;
+  
+  --color-muted: 210 40% 96%;
+  --color-muted-foreground: 215 16% 47%;
+  
+  --color-card: 0 0% 100%;
+  --color-card-foreground: 222 47% 11%;
+  
+  --color-popover: 0 0% 100%;
+  --color-popover-foreground: 222 47% 11%;
+  
+  --color-border: 214 32% 91%;
+  --color-input: 214 32% 91%;
+  --color-ring: 123 38% 64%;
+  
+  --color-destructive: 0 84% 60%;
+  --color-destructive-foreground: 0 0% 98%;
+  
+  --color-chart-1: 119 70% 41%;
+  --color-chart-2: 123 38% 64%;
+  --color-chart-3: 123 46% 34%;
+  --color-chart-4: 125 39% 94%;
+  --color-chart-5: 124 55% 24%;
+  
+  --radius: 0.5rem;
+}
+
+/* Hide Next.js error overlay portal */
+nextjs-portal {
+  display: none !important;
+}
+
+/* Custom scrollbar for dark mode */
+
