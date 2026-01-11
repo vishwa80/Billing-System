@@ -1,58 +1,109 @@
-import Header from '@/components/Header';
-import BillingTable from '@/components/BillingTable';
+'use client';
+
+import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 
-export default function Home() {
+interface Customer {
+  _id: string;
+  name?: string;
+  mobile?: string;
+  totalCredit?: number;
+  totalPaid?: number;
+  updatedAt?: string;
+}
+
+export default function CustomersPage() {
+  const [customers, setCustomers] = useState<Customer[]>([]);
+  const [loading, setLoading] = useState(true);
+  const [search, setSearch] = useState('');
+
+  useEffect(() => {
+    fetchCustomers();
+  }, []);
+
+  const fetchCustomers = async () => {
+    try {
+      const res = await fetch(`/api/customers`);
+      if (res.ok) {
+        const data = await res.json();
+        setCustomers(data);
+      }
+    } catch (error) {
+      console.error(error);
+    } finally {
+      setLoading(false);
+    }
+  };
+
+  const filteredCustomers = customers.filter(c => 
+    (c.name || '').toLowerCase().includes(search.toLowerCase()) || 
+    (c.mobile || '').includes(search)
+  );
+
   return (
-    <main className="min-h-screen bg-gray-50/50">
-      <Header />
-      
-      <div className="container mx-auto px-6 py-8">
-        <div className="flex flex-col md:flex-row justify-between items-start md:items-center mb-8 gap-4">
+    <div className="min-h-screen bg-gray-50 p-8">
+      <div className="max-w-6xl mx-auto">
+        <div className="flex justify-between items-center mb-8">
           <div>
-            <h2 className="text-2xl font-bold text-gray-900">Dashboard</h2>
-            <p className="text-sm text-gray-500 mt-1">Manage your billing and customer credits</p>
+            <h1 className="text-2xl font-bold text-gray-900">Customers & Credit Ledger</h1>
+            <p className="text-sm text-gray-500">Track all customer payments and credits</p>
           </div>
-          
-          <div className="flex gap-3">
-             <Link 
-              href="/customers" 
-              className="px-4 py-2 bg-white text-gray-700 border border-gray-200 rounded-lg text-sm font-medium hover:bg-gray-50 transition-colors shadow-sm"
-            >
-              Manage Customers
-            </Link>
-            <Link 
-              href="/bills/create" 
-              className="px-4 py-2 bg-[#22B21F] text-white rounded-lg text-sm font-medium hover:bg-[#1B5E20] transition-colors shadow-sm flex items-center gap-2"
-            >
-              <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><path d="M5 12h14"/><path d="M12 5v14"/></svg>
-              Create New Bill
-            </Link>
-          </div>
+          <Link 
+            href="/"
+            className="px-4 py-2 bg-white text-gray-700 border border-gray-200 rounded-lg text-sm font-medium hover:bg-gray-50"
+          >
+            Back to Dashboard
+          </Link>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
-          <div className="bg-gradient-to-br from-[#1B5E20] to-[#2E7D32] p-6 rounded-xl shadow-lg text-white">
-            <p className="text-white/80 text-sm font-medium mb-1">Today's Sales</p>
-            <h3 className="text-3xl font-bold">₹12,450</h3>
-            <div className="mt-4 text-xs bg-white/20 inline-block px-2 py-1 rounded">+12% from yesterday</div>
+        <div className="bg-white rounded-xl shadow-sm border border-gray-100 overflow-hidden">
+          <div className="p-4 border-b border-gray-100">
+            <input
+              type="text"
+              placeholder="Search customers..."
+              className="w-full px-4 py-2 border border-gray-200 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#22B21F]"
+              value={search}
+              onChange={(e) => setSearch(e.target.value)}
+            />
           </div>
-          
-          <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-            <p className="text-gray-500 text-sm font-medium mb-1">Pending Credits</p>
-            <h3 className="text-3xl font-bold text-amber-600">₹45,200</h3>
-            <p className="text-xs text-gray-400 mt-2">Across 12 customers</p>
-          </div>
-          
-          <div className="bg-white p-6 rounded-xl shadow-sm border border-gray-100">
-            <p className="text-gray-500 text-sm font-medium mb-1">Total Customers</p>
-            <h3 className="text-3xl font-bold text-gray-900">148</h3>
-            <p className="text-xs text-gray-400 mt-2">Active in last 30 days</p>
-          </div>
-        </div>
 
-        <BillingTable />
+          <table className="w-full text-left">
+            <thead>
+              <tr className="bg-gray-50 text-gray-600 text-xs uppercase tracking-wider">
+                <th className="px-6 py-3 font-semibold">Name</th>
+                <th className="px-6 py-3 font-semibold">Mobile</th>
+                <th className="px-6 py-3 font-semibold text-right">Total Paid</th>
+                <th className="px-6 py-3 font-semibold text-right">Current Debt</th>
+                <th className="px-6 py-3 font-semibold text-center">Status</th>
+              </tr>
+            </thead>
+            <tbody className="divide-y divide-gray-50">
+              {filteredCustomers.map((customer) => (
+                <tr key={customer._id} className="hover:bg-gray-50 transition-colors">
+                  <td className="px-6 py-4 font-medium text-gray-900">{customer.name || 'N/A'}</td>
+                  <td className="px-6 py-4 text-gray-500 font-mono">{customer.mobile || '-'}</td>
+                  <td className="px-6 py-4 text-right text-gray-600">₹{(customer.totalPaid || 0).toFixed(2)}</td>
+                  <td className="px-6 py-4 text-right font-bold text-gray-900">₹{(customer.totalCredit || 0).toFixed(2)}</td>
+                  <td className="px-6 py-4 text-center">
+                    {(customer.totalCredit || 0) <= 0 ? (
+                      <span className="bg-green-100 text-green-800 px-2 py-1 rounded text-xs">Clear</span>
+                    ) : (
+                      <span className="bg-red-100 text-red-800 px-2 py-1 rounded text-xs">Owing</span>
+                    )}
+                  </td>
+                </tr>
+              ))}
+              {filteredCustomers.length === 0 && (
+                 <tr>
+                  <td colSpan={5} className="px-6 py-12 text-center text-gray-400">
+                    No customers found matching your search.
+                  </td>
+                </tr>
+              )}
+            </tbody>
+          </table>
+        </div>
       </div>
-    </main>
+    </div>
   );
 }
